@@ -27,26 +27,9 @@ public class MainActivity extends ActionBarActivity {
         }
 
 
-        addLoginButtonListener();
     }
 
 
-    private void addLoginButtonListener()
-    {
-        Button button = (Button) findViewById(R.id.login_botton);
-
-        button.setOnClickListener( new View.OnClickListener() {
-
-            public void onClick( View view )
-            {
-                EditText text2 = (EditText)findViewById(R.id.editText);
-                text2.setText("Press botton");
-            }
-
-
-
-        });
-    }
 
 
     @Override
@@ -81,7 +64,26 @@ public class MainActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+            addLoginButtonListener( rootView );
+
             return rootView;
+        }
+
+
+
+        private void addLoginButtonListener( final View rootView )
+        {
+            Button button = (Button) rootView.findViewById(R.id.login_botton);
+
+            button.setOnClickListener( new View.OnClickListener() {
+
+                public void onClick( View view )
+                {
+                    EditText text2 = (EditText)rootView.findViewById(R.id.editText);
+                    text2.setText("Press botton");
+                }
+            });
         }
     }
 
